@@ -13,6 +13,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
+        <!--<hu.marci.customsolutions.sudokusolveranddigitizer.OpenCvJavaCameraView
+            -->
         <org.opencv.android.JavaCameraView
             android:id="@+id/camera_view"
             android:layout_width="match_parent"
@@ -25,6 +28,15 @@
             android:layout_gravity="bottom|center_horizontal"
             android:text="Capture!"
             android:onClick="startSolver"/>
+
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:text="Pressa number!"
+            android:textColor="@color/colorAccent"/>
 
     </FrameLayout>
 
