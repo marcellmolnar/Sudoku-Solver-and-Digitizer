@@ -1,21 +1,45 @@
 package hu.marci.customsolutions.sudokusolveranddigitizer;
 
 import android.content.Context;
+import android.graphics.Rect;
 import android.hardware.Camera;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.widget.Toast;
 
 import org.opencv.android.JavaCameraView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class OpenCvJavaCameraView extends JavaCameraView {
+
+    private static String TAG = "SudokuSolverandDigitizer/JavaCameraView";
 
     public OpenCvJavaCameraView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public void setFocusMode(Context item, int type) {
+
+    public void focusOnArea(){
+        // set Camera parameters
+        Camera.Parameters params = mCamera.getParameters();
+
+        if (params.getMaxNumMeteringAreas() > 0){ // check that metering areas are supported
+            List<Camera.Area> meteringAreas = new ArrayList<Camera.Area>();
+
+            Rect areaRect1 = new Rect(-100, -100, 100, 100);    // specify an area in center of image
+            meteringAreas.add(new Camera.Area(areaRect1, 600)); // set weight to 60%
+
+            params.setMeteringAreas(meteringAreas);
+        }
+
+        mCamera.setParameters(params);
+        Log.i(TAG, "focused");
+    }
+
+
+    /*public void setFocusMode(Context item, int type) {
 
         Camera mCamera = Camera.open();
         Camera.Parameters params = mCamera.getParameters();
@@ -68,6 +92,6 @@ public class OpenCvJavaCameraView extends JavaCameraView {
         }
 
         mCamera.setParameters(params);
-    }
+    }*/
 
 }

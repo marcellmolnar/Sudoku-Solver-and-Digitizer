@@ -7,6 +7,30 @@
     android:layout_gravity="center">
 
 
+    <TextView
+        android:id="@+id/solveInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/showall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/frame0"
+        android:layout_alignLeft="@id/frame0"
+        android:layout_above="@id/frame5"
+        android:layout_marginBottom="20dp"
+        android:text="@string/showall" />
+
+    <Button
+        android:id="@+id/edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/frame8"
+        android:layout_alignRight="@id/frame8"
+        android:layout_above="@id/frame5"
+        android:layout_marginBottom="20dp"
+        android:text="@string/edit" />
 
     <FrameLayout
         android:id="@+id/frame40"
@@ -27,13 +51,12 @@
         <TextView
             android:id="@+id/text40"
             android:src="@drawable/tile"
-            android:paddingLeft="11dp"
-            android:paddingStart="11dp"
-            android:paddingTop="6dp"
-            android:paddingEnd="11dp"
-            android:text="8"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
 
@@ -58,7 +81,11 @@
             android:id="@+id/text31"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
 
@@ -83,7 +110,11 @@
             android:id="@+id/text22"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
 
@@ -108,7 +139,11 @@
             android:id="@+id/text13"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
 
@@ -133,7 +168,11 @@
             android:id="@+id/text4"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
 
@@ -159,7 +198,11 @@
             android:id="@+id/text49"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
 
@@ -184,7 +227,11 @@
             android:id="@+id/text58"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
 
@@ -209,7 +256,11 @@
             android:id="@+id/text67"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
 
@@ -234,7 +285,11 @@
             android:id="@+id/text76"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
 
@@ -277,7 +332,11 @@
             android:id="@+id/text41"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -301,7 +360,11 @@
             android:id="@+id/text42"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -325,7 +388,11 @@
             android:id="@+id/text43"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -349,7 +416,11 @@
             android:id="@+id/text44"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
 
@@ -374,7 +445,11 @@
             android:id="@+id/text39"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -398,7 +473,11 @@
             android:id="@+id/text38"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -422,7 +501,11 @@
             android:id="@+id/text37"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -446,7 +529,11 @@
             android:id="@+id/text36"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
 
@@ -475,7 +562,11 @@
             android:id="@+id/text30"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -499,7 +590,11 @@
             android:id="@+id/text29"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -523,7 +618,11 @@
             android:id="@+id/text28"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -547,7 +646,11 @@
             android:id="@+id/text27"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
 
@@ -572,7 +675,11 @@
             android:id="@+id/text21"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -596,7 +703,11 @@
             android:id="@+id/text20"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -620,7 +731,11 @@
             android:id="@+id/text19"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -644,7 +759,11 @@
             android:id="@+id/text18"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
 
@@ -670,7 +789,11 @@
             android:id="@+id/text12"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -694,7 +817,11 @@
             android:id="@+id/text11"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -718,7 +845,11 @@
             android:id="@+id/text10"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -742,7 +873,11 @@
             android:id="@+id/text9"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
 
@@ -767,7 +902,11 @@
             android:id="@+id/text3"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -791,7 +930,11 @@
             android:id="@+id/text2"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -815,7 +958,11 @@
             android:id="@+id/text1"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -839,7 +986,11 @@
             android:id="@+id/text0"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
 
@@ -866,7 +1017,11 @@
             android:id="@+id/text48"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -880,17 +1035,21 @@
         android:background="@drawable/br"
         tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
         android:onClick="flipCard">
-        <TextView
-            android:id="@+id/text47"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
 
         <ImageView
             android:id="@+id/tile47"
             android:src="@drawable/tile"
             android:layout_width="35dp"
             android:layout_height="35dp" />
+        <TextView
+            android:id="@+id/text47"
+            android:src="@drawable/tile"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -914,7 +1073,11 @@
             android:id="@+id/text46"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -938,7 +1101,11 @@
             android:id="@+id/text45"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
 
@@ -948,9 +1115,9 @@
         android:layout_height="35dp"
         android:layout_toLeftOf="@id/frame40"
         android:layout_toStartOf="@id/frame40"
-        android:layout_below="@+id/frame58"
+        android:layout_below="@+id/frame49"
         android:padding="3dp"
-        android:background="@drawable/l"
+        android:background="@drawable/tl"
         tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
         android:onClick="flipCard">
 
@@ -963,7 +1130,11 @@
             android:id="@+id/text57"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -972,9 +1143,9 @@
         android:layout_height="35dp"
         android:layout_toLeftOf="@id/frame39"
         android:layout_toStartOf="@id/frame39"
-        android:layout_below="@+id/frame58"
+        android:layout_below="@+id/frame49"
         android:padding="3dp"
-        android:background="@drawable/r"
+        android:background="@drawable/tr"
         tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
         android:onClick="flipCard">
 
@@ -987,7 +1158,11 @@
             android:id="@+id/text56"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -996,9 +1171,9 @@
         android:layout_height="35dp"
         android:layout_toLeftOf="@id/frame38"
         android:layout_toStartOf="@id/frame38"
-        android:layout_below="@+id/frame58"
+        android:layout_below="@+id/frame49"
         android:padding="3dp"
-        android:background="@drawable/tile_border"
+        android:background="@drawable/t"
         tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
         android:onClick="flipCard">
 
@@ -1007,11 +1182,16 @@
             android:src="@drawable/tile"
             android:layout_width="35dp"
             android:layout_height="35dp" />
+
         <TextView
             android:id="@+id/text55"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_width="31dp"
+            android:layout_height="35dp"
+            android:paddingStart="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="6dp"
+            android:paddingRight="10dp"
+            android:src="@drawable/tile" />
 
     </FrameLayout>
     <FrameLayout
@@ -1020,9 +1200,9 @@
         android:layout_height="35dp"
         android:layout_toLeftOf="@id/frame37"
         android:layout_toStartOf="@id/frame37"
-        android:layout_below="@+id/frame58"
+        android:layout_below="@+id/frame49"
         android:padding="3dp"
-        android:background="@drawable/l"
+        android:background="@drawable/tl"
         tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
         android:onClick="flipCard">
 
@@ -1035,7 +1215,11 @@
             android:id="@+id/text54"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
 
@@ -1045,9 +1229,9 @@
         android:layout_height="35dp"
         android:layout_toLeftOf="@id/frame40"
         android:layout_toStartOf="@id/frame40"
-        android:layout_below="@+id/frame49"
+        android:layout_below="@+id/frame58"
         android:padding="3dp"
-        android:background="@drawable/tl"
+        android:background="@drawable/l"
         tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
         android:onClick="flipCard">
 
@@ -1060,7 +1244,11 @@
             android:id="@+id/text66"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -1069,9 +1257,9 @@
         android:layout_height="35dp"
         android:layout_toLeftOf="@id/frame39"
         android:layout_toStartOf="@id/frame39"
-        android:layout_below="@+id/frame49"
+        android:layout_below="@+id/frame58"
         android:padding="3dp"
-        android:background="@drawable/tr"
+        android:background="@drawable/r"
         tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
         android:onClick="flipCard">
 
@@ -1084,7 +1272,11 @@
             android:id="@+id/text65"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -1093,9 +1285,9 @@
         android:layout_height="35dp"
         android:layout_toLeftOf="@id/frame38"
         android:layout_toStartOf="@id/frame38"
-        android:layout_below="@+id/frame49"
+        android:layout_below="@+id/frame58"
         android:padding="3dp"
-        android:background="@drawable/t"
+        android:background="@drawable/tile_border"
         tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
         android:onClick="flipCard">
 
@@ -1108,7 +1300,11 @@
             android:id="@+id/text64"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -1117,9 +1313,9 @@
         android:layout_height="35dp"
         android:layout_toLeftOf="@id/frame37"
         android:layout_toStartOf="@id/frame37"
-        android:layout_below="@+id/frame49"
+        android:layout_below="@+id/frame58"
         android:padding="3dp"
-        android:background="@drawable/tl"
+        android:background="@drawable/l"
         tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
         android:onClick="flipCard">
 
@@ -1132,7 +1328,11 @@
             android:id="@+id/text63"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
 
@@ -1157,7 +1357,11 @@
             android:id="@+id/text75"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -1181,7 +1385,11 @@
             android:id="@+id/text74"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -1205,7 +1413,11 @@
             android:id="@+id/text73"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -1229,7 +1441,11 @@
             android:id="@+id/text72"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
 
@@ -1270,7 +1486,11 @@
             android:id="@+id/text32"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -1294,7 +1514,11 @@
             android:id="@+id/text33"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -1318,7 +1542,11 @@
             android:id="@+id/text34"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -1342,7 +1570,11 @@
             android:id="@+id/text35"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
 
@@ -1368,7 +1600,11 @@
             android:id="@+id/text23"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -1392,7 +1628,11 @@
             android:id="@+id/text24"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -1416,7 +1656,11 @@
             android:id="@+id/text25"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -1440,7 +1684,11 @@
             android:id="@+id/text26"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
 
@@ -1466,7 +1714,11 @@
             android:id="@+id/text14"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -1490,7 +1742,11 @@
             android:id="@+id/text15"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -1514,7 +1770,11 @@
             android:id="@+id/text16"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -1538,7 +1798,11 @@
             android:id="@+id/text17"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
 
@@ -1563,7 +1827,11 @@
             android:id="@+id/text5"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -1587,7 +1855,11 @@
             android:id="@+id/text6"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -1611,7 +1883,11 @@
             android:id="@+id/text7"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -1635,7 +1911,11 @@
             android:id="@+id/text8"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
 
@@ -1663,7 +1943,11 @@
             android:id="@+id/text50"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -1687,7 +1971,11 @@
             android:id="@+id/text51"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -1711,7 +1999,11 @@
             android:id="@+id/text52"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -1735,7 +2027,11 @@
             android:id="@+id/text53"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
 
@@ -1760,7 +2056,11 @@
             android:id="@+id/text59"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -1784,7 +2084,11 @@
             android:id="@+id/text60"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -1808,7 +2112,11 @@
             android:id="@+id/text61"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -1832,7 +2140,11 @@
             android:id="@+id/text62"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
 
@@ -1857,7 +2169,11 @@
             android:id="@+id/text68"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -1881,7 +2197,11 @@
             android:id="@+id/text69"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -1905,7 +2225,11 @@
             android:id="@+id/text70"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -1929,7 +2253,11 @@
             android:id="@+id/text71"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
 
@@ -1954,7 +2282,11 @@
             android:id="@+id/text77"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -1978,7 +2310,11 @@
             android:id="@+id/text78"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -2002,7 +2338,11 @@
             android:id="@+id/text79"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
     <FrameLayout
@@ -2026,8 +2366,13 @@
             android:id="@+id/text80"
             android:src="@drawable/tile"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp" />
 
     </FrameLayout>
+
 
 </RelativeLayout>

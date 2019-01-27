@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Sudoku Solver and Digitizer</string>
+    <string name="edit">Edit</string>
+    <string name="showall">Show all!</string>
+    <string name="hideall">Hide all!</string>
+    <string name="solveSuccess">Solved successfully</string>
+    <string name="solveFailure">Something went wrong..</string>
 </resources>

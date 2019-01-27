@@ -14,9 +14,11 @@
         android:layout_height="match_parent">
 
 
-        <!--<hu.marci.customsolutions.sudokusolveranddigitizer.OpenCvJavaCameraView
-            -->
+
+        <!--
         <org.opencv.android.JavaCameraView
+        -->
+        <hu.marci.customsolutions.sudokusolveranddigitizer.OpenCvJavaCameraView
             android:id="@+id/camera_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -35,8 +37,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="top|center_horizontal"
-            android:text="Pressa number!"
+            android:text="Press a number!"
             android:textColor="@color/colorAccent"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal" />
+
 
     </FrameLayout>
 

@@ -1,9 +1,17 @@
 package hu.marci.customsolutions.sudokusolveranddigitizer;
 
 
+import android.Manifest;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
+import android.graphics.Rect;
+import android.hardware.Camera;
+import android.os.Build;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +20,8 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ProgressBar;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import org.opencv.android.BaseLoaderCallback;
@@ -21,27 +31,20 @@ import org.opencv.android.LoaderCallbackInterface;
 import org.opencv.android.OpenCVLoader;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
-import org.opencv.core.Point;
-import org.opencv.core.Rect;
-import org.opencv.core.Scalar;
-import org.opencv.core.Size;
 import org.opencv.dnn.Dnn;
 import org.opencv.dnn.Net;
-import org.opencv.imgproc.Imgproc;
 
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-import hu.marci.customsolutions.sudokusolveranddigitizer.models.Classification;
-import hu.marci.customsolutions.sudokusolveranddigitizer.models.Classifier;
-import hu.marci.customsolutions.sudokusolveranddigitizer.models.TensorFlowClassifier;
 
 public class MainActivity extends AppCompatActivity implements CameraBridgeViewBase.CvCameraViewListener2,
         View.OnTouchListener {
-
-    private static final int PIXEL_WIDTH = 28;
 
     public static final String EXTRA_MESSAGE = "hu.marci.simplesolutions.sudokusolveranddigitizer.MESSAGE";
     private static String TAG = "SudokuSolverandDigitizer/MainActivity";
@@ -53,12 +56,13 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
 
     private Net myNet;
 
-    private Classifier mClassifier;
+    private TextView tv;
+    private ProgressBar progressBar;
 
-    TextView tv;
+    Camera mCamera;
 
     //OpenCvJavaCameraView javaCameraView;
-    JavaCameraView javaCameraView;
+    OpenCvJavaCameraView javaCameraView;
     BaseLoaderCallback mBaseLoaderCallBack = new BaseLoaderCallback(this) {
         @Override
         public void onManagerConnected(int status) {
@@ -77,86 +81,27 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
         }
     };
 
-    int x_num = 8;
-    int y_num = 1;
-    float offset_ = (float) (0.0/10);
+    int numbers[] = new int[]{
+        0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0 };
+
 
     public void startSolver(View view) {
-
-        float w = (float) (((float) mflippedGray.size().width)/9.0);
-        float h = (float) (((float) mflippedGray.size().height)/9.0);
-
-        float[] pixels =  new float[28*28];
-
-        float offset = offset_ *w;
-        Rect rectCrop0 = new Rect((int)(x_num*w+offset), (int)(y_num*h+offset), (int)(w-2*offset), (int)(h-2*offset));
-        Mat cropped0 = new Mat(mflippedGray,rectCrop0);
-
-        Mat resized0 = new Mat();
-        Size sz0 = new Size(28,28);
-        Imgproc.resize( cropped0, resized0, sz0 );
-
-        for(int k = 0; k < resized0.rows(); k++){
-            for(int l= 0; l < resized0.cols(); l++){
-                pixels[k*28+l] = (float) (( 255.0 - (float)resized0.get(k,l)[0])/255.0);
-            }
-        }
-
-        String text = "";
-
-        final Classification res0 = mClassifier.recognize(pixels);
-        if (res0.getLabel() == null) {
-            text += mClassifier.name() + ": ?\n";
-        } else {
-            //else output its name
-            text += String.format("%s: %s, %f\n", mClassifier.name(), res0.getLabel(),
-                    res0.getConf());
-            tv.setText(String.format("Best choice: %s, with %s confidence.",
-                    res0.getLabel(), res0.getConf()));
-        }
-        Log.i(TAG,text);
-
-
-        if(3-2 == 1)
-            return;
-
-        for (int i = 0; i < 8; i++){
-            for (int j = 0; j < 8; j++){
-                // Crop region of interest.
-                Rect rectCrop = new Rect((int)(i*w), (int)(j*h), (int)w, (int)h);
-                Mat cropped = new Mat(mflippedGray,rectCrop);
-
-                Mat resized = new Mat();
-                Size sz = new Size(28,28);
-                Imgproc.resize( cropped, resized, sz );
-
-                for(int k = 0; k < resized.size().width; k++){
-                    for(int l= 0; l < resized.size().height; l++){
-                        pixels[k*9+1] = (float)resized.get(k,l)[0];
-                    }
-                }
-
-                String text0 = "";
-
-                final Classification res = mClassifier.recognize(pixels);
-                //if it can't classify, output a question mark
-                if (res.getLabel() == null) {
-                    text += mClassifier.name() + ": ?\n";
-                } else {
-                    //else output its name
-                    text += String.format("%s: %s, %f\n", mClassifier.name(), res.getLabel(),
-                            res.getConf());
-
-                }
-                Log.i(TAG,text);
-            }
-        }
-
-
-        //Intent intent = new Intent(this, SolverActivity.class);
+        //progressBar.setVisibility(View.VISIBLE);
+        Intent intent = new Intent(this, SolverActivity.class);
         // we calc the numbers in native, and only pass through the array of numbers
-        //intent.putExtra(EXTRA_MESSAGE, mflippedGray.getNativeObjAddr());
-        //startActivity(intent);
+        intent.putExtra("numbers", numbers);
+        Log.d("this is my array", "arr: " + Arrays.toString(numbers));
+        ActivityOptions options =
+                ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.slide_in_from_right, R.anim.slide_out_to_left);
+        startActivity(intent, options.toBundle());
     }
 
     @Override
@@ -169,18 +114,69 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
 
         setContentView(R.layout.activity_main);
 
+
+        // https://developer.android.com/training/permissions/requesting
+        //Check if permission is already granted
+        //thisActivity is your activity. (e.g.: MainActivity.this)
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            // Give first an explanation, if needed.
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.CAMERA)) {
+
+                // Show an explanation to the user *asynchronously* -- don't block
+                // this thread waiting for the user's response! After the user
+                // sees the explanation, try again to request the permission.
+
+            } else {
+
+                // No explanation needed, we can request the permission.
+
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.CAMERA},
+                        1);
+            }
+        }
+
+
+
         javaCameraView = findViewById(R.id.camera_view);
         javaCameraView.setVisibility(SurfaceView.VISIBLE);
         javaCameraView.setCvCameraViewListener(this);
         //javaCameraView.setFocusMode(getApplicationContext(), 0);
 
+
         // Example of a call to a native method
         tv = findViewById(R.id.tv);
         tv.setText(stringFromJNI());
 
+        progressBar = findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.INVISIBLE);
 
+    }
 
-        loadModel();
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case 1: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+                } else {
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+                }
+                return;
+            }
+
+            // other 'case' lines to check for other
+            // permissions this app might request.
+        }
     }
 
     @Override
@@ -204,6 +200,7 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
         if (javaCameraView != null) {
             javaCameraView.disableView();
         }
+        progressBar.setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -212,35 +209,10 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
         if (javaCameraView != null) {
             javaCameraView.disableView();
         }
+        if (mCamera != null){
+            mCamera.release();
+        }
     }
-
-
-    //creates a model object in memory using the saved tensorflow protobuf model file
-    //which contains all the learned weights
-    private void loadModel() {
-        //The Runnable interface is another way in which you can implement multi-threading other than extending the
-        // //Thread class due to the fact that Java allows you to extend only one class. Runnable is just an interface,
-        // //which provides the method run.
-        // //Threads are implementations and use Runnable to call the method run().
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    //add 2 classifiers to our classifier arraylist
-                    //the tensorflow classifier and the keras classifier
-                    mClassifier =
-                            TensorFlowClassifier.create(getAssets(), "Keras",
-                                    "opt_mnist_convnet.pb", "labels.txt", PIXEL_WIDTH,
-                                    "conv2d_1_input", "dense_2/Softmax", false);
-                } catch (final Exception e) {
-                    //if they aren't found, throw an error!
-                    throw new RuntimeException("Error initializing classifiers!", e);
-                }
-            }
-        }).start();
-    }
-
-
 
 
     /**
@@ -255,8 +227,8 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
     }
 
 
-    public native int imgProc(long inputFrame, long mRgbaFlipped, long imageGray, long flipped);//,
-                              //long myNetAddress);
+    public native boolean imgProc(long inputFrame, long mRgbaFlipped, long imageGray, long flipped,
+                              long myNetAddress, int[]numbers);
 
 
 
@@ -267,11 +239,10 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
         mRgbaFlipped = new Mat(width, height, CvType.CV_8UC4);
         mGray = new Mat(height, width, CvType.CV_8UC1);
         mflippedGray = new Mat(width, height, CvType.CV_8UC1);
-        //String model = getPath("opt_mnist_convnet.pb", this);
-        //String config = getPath("mnist_convnet_graph.pbtxt", this);
-        //myNet = Dnn.readNetFromTensorflow(model, config);
+        String model = getPath("opt_my_convnet.pb", this);
+        String config = getPath("new_my_convnet_model.pbtxt", this);
+        myNet = Dnn.readNetFromTensorflow(model, config);
         Log.i(TAG, "DNN read successfully");
-
     }
 
     private static String getPath(String file, Context context) {
@@ -304,16 +275,14 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
     @Override
     public Mat onCameraFrame(CameraBridgeViewBase.CvCameraViewFrame inputFrame) {
         mRgba = inputFrame.rgba();
-        imgProc(mRgba.getNativeObjAddr(), mRgbaFlipped.getNativeObjAddr(), mGray.getNativeObjAddr(),
-                mflippedGray.getNativeObjAddr()/*, myNet.getNativeObjAddr()*/);
+        boolean detectedASudoku = imgProc(mRgba.getNativeObjAddr(), mRgbaFlipped.getNativeObjAddr(), mGray.getNativeObjAddr(),
+                mflippedGray.getNativeObjAddr(), myNet.getNativeObjAddr(), numbers);
 
-        float w = (float) (((float) mflippedGray.size().width)/9.0);
-        float h = (float) (((float) mflippedGray.size().height)/9.0);
+        if (detectedASudoku){
+            return mflippedGray;
+        }
 
-        float offset = offset_ *w;
-        Rect rect = new Rect((int)(x_num*w+offset), (int)(y_num*h+offset), (int)(w-2*offset), (int)(h-2*offset));
-        Imgproc.rectangle(mflippedGray, new Point(rect.x, rect.y), new Point(rect.x + rect.width, rect.y + rect.height), new Scalar(255), 2);
-        return mflippedGray;
+        return mRgbaFlipped;
     }
 
 
@@ -329,12 +298,11 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
         double x = (((event).getX() - xOffset) /cols);
         double y = (((event).getY() - yOffset) / rows);
 
-        x_num = (int) (9*x);
-        y_num = (int) (9*y);
+        //startSolver(arg0);
 
-        startSolver(arg0);
+        //javaCameraView.focusOnArea();
 
-        return false;// don't need subsequent touch events
+        return false;
     }
 
 }
