@@ -7,9 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
-import android.graphics.Rect;
 import android.hardware.Camera;
-import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -20,13 +18,10 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ProgressBar;
-import android.widget.SeekBar;
 import android.widget.TextView;
 
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.CameraBridgeViewBase;
-import org.opencv.android.JavaCameraView;
 import org.opencv.android.LoaderCallbackInterface;
 import org.opencv.android.OpenCVLoader;
 import org.opencv.core.CvType;
@@ -38,9 +33,7 @@ import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity implements CameraBridgeViewBase.CvCameraViewListener2,
@@ -57,7 +50,6 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
     private Net myNet;
 
     private TextView tv;
-    private ProgressBar progressBar;
 
     Camera mCamera;
 
@@ -94,13 +86,12 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
 
 
     public void startSolver(View view) {
-        //progressBar.setVisibility(View.VISIBLE);
         Intent intent = new Intent(this, SolverActivity.class);
         // we calc the numbers in native, and only pass through the array of numbers
         intent.putExtra("numbers", numbers);
         Log.d("this is my array", "arr: " + Arrays.toString(numbers));
-        ActivityOptions options =
-                ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.slide_in_from_right, R.anim.slide_out_to_left);
+        ActivityOptions options = ActivityOptions.makeCustomAnimation(getApplicationContext(),
+                R.anim.slide_in_from_right, R.anim.slide_out_to_left);
         startActivity(intent, options.toBundle());
     }
 
@@ -152,9 +143,6 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
         tv = findViewById(R.id.tv);
         tv.setText(stringFromJNI());
 
-        progressBar = findViewById(R.id.progressBar);
-        progressBar.setVisibility(View.INVISIBLE);
-
     }
 
     @Override
@@ -200,7 +188,6 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
         if (javaCameraView != null) {
             javaCameraView.disableView();
         }
-        progressBar.setVisibility(View.INVISIBLE);
     }
 
     @Override

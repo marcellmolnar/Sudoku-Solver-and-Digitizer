@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Sudoku Solver and Digitizer</string>
+    <string name="edit">Szerkesztés</string>
+    <string name="showall">Mutasd mindet!</string>
+    <string name="hideall">Rejtsd el mindet!</string>
+    <string name="solveSuccess">Sikeres megoldás</string>
+    <string name="solveFailure">Valami elromlott..</string>
+</resources>

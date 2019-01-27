@@ -1,12 +1,22 @@
 package hu.marci.customsolutions.sudokusolveranddigitizer;
 
 import android.animation.ObjectAnimator;
+import android.app.Activity;
+import android.app.Dialog;
+import android.app.ListActivity;
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.Locale;
@@ -24,12 +34,18 @@ public class SolverActivity extends AppCompatActivity {
 
     private Locale locale;
 
+    private ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.solver_layout);
 
         locale = getResources().getConfiguration().locale;
+
+        solveInfo = findViewById(R.id.solveInfo);
+        progressBar = findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.INVISIBLE);
 
         showNumber = new boolean[81];
         for (int i = 0; i < 81; i++){
@@ -47,7 +63,7 @@ public class SolverActivity extends AppCompatActivity {
 
         solution = new int[81];
 
-        solveInfo = findViewById(R.id.solveInfo);
+
 
         texts = new TextView[81];
 
@@ -95,47 +111,103 @@ public class SolverActivity extends AppCompatActivity {
             }
         });
 
+
+
+        Toolbar mToolbar = findViewById(R.id.toolbar);
+        mToolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
+
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                overridePendingTransition(R.anim.slide_in_from_left, R.anim.slide_out_to_right);
+            }
+        });
+
+    }
+
+    boolean solved = false;
+
+    private class SolveSudoku extends AsyncTask<Void,Void, Void> {
+
+        private Activity activity;
+        private Dialog dialog;
+
+        public SolveSudoku(Activity activity) {
+            this.activity = activity;
+            dialog = new Dialog(activity, R.style.Theme_AppCompat);
+            View view = LayoutInflater.from(activity).inflate(R.layout.remove_border, null);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.getWindow().setBackgroundDrawableResource(R.color.transparent);
+            dialog.setContentView(view);
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            // Solving sudoku may takes a few seconds...
+            solved = solveSudoku(numbers, solution);
+            return null;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            dialog.show();
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... progress) {
+            super.onProgressUpdate(progress);
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            if (dialog.isShowing()){
+                dialog.dismiss();
+            }
+            if (solved){
+                solveInfo.setText(R.string.solveSuccess);
+            }
+            else{
+                solveInfo.setText(R.string.solveFailure);
+            }
+
+            for (int i = 0; i < 81; i++){
+                if (numbers != null && numbers[i] != 0) {
+                    // Remove tile background from this cell
+                    findViewById(getResourceIDfromNumber(i, 1)).setVisibility(View.INVISIBLE);
+                    // Delete onClick listener from FrameLayout
+                    findViewById(getResourceIDfromNumber(i, 2)).setOnClickListener(null);
+                }
+                // Get TextView
+                texts[i] = findViewById(getResourceIDfromNumber(i, 0));
+                if (texts[i] != null && numbers[i] != 0) {
+                    // Set number
+                    texts[i].setText(String.format(locale, "%d", numbers[i]));
+                }
+                if (numbers[i] == 0){
+
+                    if (texts[i] != null) {
+                        texts[i].setText(String.format(locale, "%d", solution[i]));
+                    }
+
+                    showNumber[i] = false;
+
+                    ObjectAnimator anim;
+                    anim = ObjectAnimator.ofFloat(texts[i],"alpha",0.f);
+                    anim.setDuration(0);
+                    anim.start();
+                }
+            }
+        }
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-
-        if(solveSudoku(numbers, solution)){
-            solveInfo.setText(R.string.solveSuccess);
-        }
-        else{
-            solveInfo.setText(R.string.solveFailure);
-        }
-
-        for (int i = 0; i < 81; i++){
-            if (numbers != null && numbers[i] != 0) {
-                // Remove tile background from this cell
-                findViewById(getResourceIDfromNumber(i, 1)).setVisibility(View.INVISIBLE);
-                // Delete onClick listener from FrameLayout
-                findViewById(getResourceIDfromNumber(i, 2)).setOnClickListener(null);
-            }
-            // Get TextView
-            texts[i] = findViewById(getResourceIDfromNumber(i, 0));
-            if (texts[i] != null && numbers[i] != 0) {
-                // Set number
-                texts[i].setText(String.format(locale, "%d", numbers[i]));
-            }
-            if (numbers[i] == 0){
-
-                if (texts[i] != null) {
-                    texts[i].setText(String.format(locale, "%d", solution[i]));
-                }
-
-                showNumber[i] = false;
-
-                ObjectAnimator anim;
-                anim = ObjectAnimator.ofFloat(texts[i],"alpha",0.f);
-                anim.setDuration(0);
-                anim.start();
-            }
-        }
+        new SolveSudoku(SolverActivity.this).execute();
     }
 
     @Override

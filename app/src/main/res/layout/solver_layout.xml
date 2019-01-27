@@ -1,2378 +1,2400 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" >
 
-
-    <TextView
-        android:id="@+id/solveInfo"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/showall"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@id/frame0"
-        android:layout_alignLeft="@id/frame0"
-        android:layout_above="@id/frame5"
-        android:layout_marginBottom="20dp"
-        android:text="@string/showall" />
-
-    <Button
-        android:id="@+id/edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@id/frame8"
-        android:layout_alignRight="@id/frame8"
-        android:layout_above="@id/frame5"
-        android:layout_marginBottom="20dp"
-        android:text="@string/edit" />
-
-    <FrameLayout
-        android:id="@+id/frame40"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:padding="3dp"
-        android:background="@drawable/tile_border"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile40"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text40"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-
-
-    <FrameLayout
-        android:id="@+id/frame31"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_above="@id/frame40"
-        android:layout_centerHorizontal="true"
-        android:padding="3dp"
-        android:background="@drawable/t"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile31"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text31"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-
-
-    <FrameLayout
-        android:id="@+id/frame22"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_above="@id/frame31"
-        android:layout_centerHorizontal="true"
-        android:padding="3dp"
-        android:background="@drawable/b"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile22"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text22"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-
-
-    <FrameLayout
-        android:id="@+id/frame13"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_above="@id/frame22"
-        android:layout_centerHorizontal="true"
-        android:padding="3dp"
-        android:background="@drawable/tile_border"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile13"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text13"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-
-
-    <FrameLayout
-        android:id="@+id/frame4"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_above="@id/frame13"
-        android:layout_centerHorizontal="true"
-        android:padding="3dp"
-        android:background="@drawable/t"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile4"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text4"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-
-
-
-    <FrameLayout
-        android:id="@+id/frame49"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_below="@id/frame40"
-        android:layout_centerHorizontal="true"
-        android:padding="3dp"
-        android:background="@drawable/b"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile49"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text49"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-
-
-    <FrameLayout
-        android:id="@+id/frame58"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_below="@id/frame49"
-        android:layout_centerHorizontal="true"
-        android:padding="3dp"
-        android:background="@drawable/t"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile58"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text58"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-
-
-    <FrameLayout
-        android:id="@+id/frame67"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_below="@id/frame58"
-        android:layout_centerHorizontal="true"
-        android:padding="3dp"
-        android:background="@drawable/tile_border"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile67"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text67"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-
-
-    <FrameLayout
-        android:id="@+id/frame76"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_below="@id/frame67"
-        android:layout_centerHorizontal="true"
-        android:padding="3dp"
-        android:background="@drawable/b"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile76"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text76"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <FrameLayout
-        android:id="@+id/frame41"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame40"
-        android:layout_toEndOf="@id/frame40"
-        android:layout_centerVertical="true"
-        android:padding="3dp"
-        android:background="@drawable/r"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile41"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text41"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame42"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame41"
-        android:layout_toEndOf="@id/frame41"
-        android:layout_centerVertical="true"
-        android:padding="3dp"
-        android:background="@drawable/l"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile42"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text42"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame43"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame42"
-        android:layout_toEndOf="@id/frame42"
-        android:layout_centerVertical="true"
-        android:padding="3dp"
-        android:background="@drawable/tile_border"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile43"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text43"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame44"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame43"
-        android:layout_toEndOf="@id/frame43"
-        android:layout_centerVertical="true"
-        android:padding="3dp"
-        android:background="@drawable/r"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile44"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text44"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/frame39"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame40"
-        android:layout_toStartOf="@id/frame40"
-        android:layout_centerVertical="true"
-        android:padding="3dp"
-        android:background="@drawable/l"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile39"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text39"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame38"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame39"
-        android:layout_toStartOf="@id/frame39"
-        android:layout_centerVertical="true"
-        android:padding="3dp"
-        android:background="@drawable/r"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile38"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text38"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame37"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame38"
-        android:layout_toStartOf="@id/frame38"
-        android:layout_centerVertical="true"
-        android:padding="3dp"
-        android:background="@drawable/tile_border"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile37"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text37"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame36"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame37"
-        android:layout_toStartOf="@id/frame37"
-        android:layout_centerVertical="true"
-        android:padding="3dp"
-        android:background="@drawable/l"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile36"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text36"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-
-
-
+        android:background="@drawable/tile"
+        android:minHeight="?attr/actionBarSize"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:id="@+id/solveInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"/>
+
+        <Button
+            android:id="@+id/showall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/frame0"
+            android:layout_alignLeft="@id/frame0"
+            android:layout_above="@id/frame5"
+            android:layout_marginBottom="5dp"
+            android:text="@string/showall" />
+
+        <Button
+            android:id="@+id/edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@id/frame8"
+            android:layout_alignRight="@id/frame8"
+            android:layout_above="@id/frame5"
+            android:layout_marginBottom="5dp"
+            android:text="@string/edit" />
+
+        <FrameLayout
+            android:id="@+id/frame40"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:padding="3dp"
+            android:background="@drawable/tile_border"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile40"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text40"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:id="@+id/frame31"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_above="@id/frame40"
+            android:layout_centerHorizontal="true"
+            android:padding="3dp"
+            android:background="@drawable/t"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile31"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text31"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:id="@+id/frame22"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_above="@id/frame31"
+            android:layout_centerHorizontal="true"
+            android:padding="3dp"
+            android:background="@drawable/b"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile22"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text22"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:id="@+id/frame13"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_above="@id/frame22"
+            android:layout_centerHorizontal="true"
+            android:padding="3dp"
+            android:background="@drawable/tile_border"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile13"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text13"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:id="@+id/frame4"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_above="@id/frame13"
+            android:layout_centerHorizontal="true"
+            android:padding="3dp"
+            android:background="@drawable/t"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile4"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text4"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+
+
+
+        <FrameLayout
+            android:id="@+id/frame49"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_below="@id/frame40"
+            android:layout_centerHorizontal="true"
+            android:padding="3dp"
+            android:background="@drawable/b"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile49"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text49"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
 
 
-    <FrameLayout
-        android:id="@+id/frame30"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame40"
-        android:layout_toStartOf="@id/frame40"
-        android:layout_above="@+id/frame40"
-        android:padding="3dp"
-        android:background="@drawable/tl"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile30"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text30"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame29"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame39"
-        android:layout_toStartOf="@id/frame39"
-        android:layout_above="@+id/frame40"
-        android:padding="3dp"
-        android:background="@drawable/tr"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile29"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text29"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame28"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame38"
-        android:layout_toStartOf="@id/frame38"
-        android:layout_above="@+id/frame40"
-        android:padding="3dp"
-        android:background="@drawable/t"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile28"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text28"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame27"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame37"
-        android:layout_toStartOf="@id/frame37"
-        android:layout_above="@+id/frame40"
-        android:padding="3dp"
-        android:background="@drawable/tl"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile27"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text27"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/frame21"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame40"
-        android:layout_toStartOf="@id/frame40"
-        android:layout_above="@+id/frame31"
-        android:padding="3dp"
-        android:background="@drawable/bl"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile21"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text21"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame20"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame39"
-        android:layout_toStartOf="@id/frame39"
-        android:layout_above="@+id/frame31"
-        android:padding="3dp"
-        android:background="@drawable/br"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile20"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text20"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame19"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame38"
-        android:layout_toStartOf="@id/frame38"
-        android:layout_above="@+id/frame31"
-        android:padding="3dp"
-        android:background="@drawable/b"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile19"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text19"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame18"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame37"
-        android:layout_toStartOf="@id/frame37"
-        android:layout_above="@+id/frame31"
-        android:padding="3dp"
-        android:background="@drawable/bl"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile18"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text18"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/frame12"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_above="@+id/frame21"
-        android:layout_marginBottom="0dp"
-        android:layout_toStartOf="@id/frame40"
-        android:layout_toLeftOf="@id/frame40"
-        android:background="@drawable/l"
-        android:padding="3dp"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile12"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/tile" />
-        <TextView
-            android:id="@+id/text12"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame11"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame39"
-        android:layout_toStartOf="@id/frame39"
-        android:layout_above="@+id/frame22"
-        android:padding="3dp"
-        android:background="@drawable/r"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile11"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text11"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame10"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame38"
-        android:layout_toStartOf="@id/frame38"
-        android:layout_above="@+id/frame22"
-        android:padding="3dp"
-        android:background="@drawable/tile_border"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile10"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text10"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame9"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame37"
-        android:layout_toStartOf="@id/frame37"
-        android:layout_above="@+id/frame22"
-        android:padding="3dp"
-        android:background="@drawable/l"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile9"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text9"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/frame3"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame40"
-        android:layout_toStartOf="@id/frame40"
-        android:layout_above="@+id/frame13"
-        android:padding="3dp"
-        android:background="@drawable/tl"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile3"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text3"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame2"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame39"
-        android:layout_toStartOf="@id/frame39"
-        android:layout_above="@+id/frame13"
-        android:padding="3dp"
-        android:background="@drawable/tr"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile2"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text2"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame1"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame38"
-        android:layout_toStartOf="@id/frame38"
-        android:layout_above="@+id/frame13"
-        android:padding="3dp"
-        android:background="@drawable/t"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile1"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text1"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame0"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame37"
-        android:layout_toStartOf="@id/frame37"
-        android:layout_above="@+id/frame13"
-        android:padding="3dp"
-        android:background="@drawable/tl"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile0"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text0"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-
-
-
-    <FrameLayout
-        android:id="@+id/frame48"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame40"
-        android:layout_toStartOf="@id/frame40"
-        android:layout_below="@+id/frame67"
-        android:padding="3dp"
-        android:background="@drawable/bl"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile48"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text48"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame47"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame39"
-        android:layout_toStartOf="@id/frame39"
-        android:layout_below="@+id/frame67"
-        android:padding="3dp"
-        android:background="@drawable/br"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile47"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text47"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame46"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame38"
-        android:layout_toStartOf="@id/frame38"
-        android:layout_below="@+id/frame67"
-        android:padding="3dp"
-        android:background="@drawable/b"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile46"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text46"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame45"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame37"
-        android:layout_toStartOf="@id/frame37"
-        android:layout_below="@+id/frame67"
-        android:padding="3dp"
-        android:background="@drawable/bl"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile45"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text45"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/frame57"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame40"
-        android:layout_toStartOf="@id/frame40"
-        android:layout_below="@+id/frame49"
-        android:padding="3dp"
-        android:background="@drawable/tl"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile57"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text57"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame56"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame39"
-        android:layout_toStartOf="@id/frame39"
-        android:layout_below="@+id/frame49"
-        android:padding="3dp"
-        android:background="@drawable/tr"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile56"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text56"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame55"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame38"
-        android:layout_toStartOf="@id/frame38"
-        android:layout_below="@+id/frame49"
-        android:padding="3dp"
-        android:background="@drawable/t"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile55"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-
-        <TextView
-            android:id="@+id/text55"
-            android:layout_width="31dp"
-            android:layout_height="35dp"
-            android:paddingStart="10dp"
-            android:paddingLeft="10dp"
-            android:paddingTop="6dp"
-            android:paddingRight="10dp"
-            android:src="@drawable/tile" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame54"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame37"
-        android:layout_toStartOf="@id/frame37"
-        android:layout_below="@+id/frame49"
-        android:padding="3dp"
-        android:background="@drawable/tl"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile54"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text54"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/frame66"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame40"
-        android:layout_toStartOf="@id/frame40"
-        android:layout_below="@+id/frame58"
-        android:padding="3dp"
-        android:background="@drawable/l"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile66"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text66"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame65"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame39"
-        android:layout_toStartOf="@id/frame39"
-        android:layout_below="@+id/frame58"
-        android:padding="3dp"
-        android:background="@drawable/r"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile65"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text65"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame64"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame38"
-        android:layout_toStartOf="@id/frame38"
-        android:layout_below="@+id/frame58"
-        android:padding="3dp"
-        android:background="@drawable/tile_border"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile64"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text64"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame63"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame37"
-        android:layout_toStartOf="@id/frame37"
-        android:layout_below="@+id/frame58"
-        android:padding="3dp"
-        android:background="@drawable/l"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile63"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text63"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/frame75"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame40"
-        android:layout_toStartOf="@id/frame40"
-        android:layout_below="@+id/frame40"
-        android:padding="3dp"
-        android:background="@drawable/bl"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile75"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text75"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame74"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame39"
-        android:layout_toStartOf="@id/frame39"
-        android:layout_below="@+id/frame40"
-        android:padding="3dp"
-        android:background="@drawable/br"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile74"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text74"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame73"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame38"
-        android:layout_toStartOf="@id/frame38"
-        android:layout_below="@+id/frame40"
-        android:padding="3dp"
-        android:background="@drawable/b"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile73"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text73"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame72"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toLeftOf="@id/frame37"
-        android:layout_toStartOf="@id/frame37"
-        android:layout_below="@+id/frame40"
-        android:padding="3dp"
-        android:background="@drawable/bl"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile72"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text72"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <FrameLayout
-        android:id="@+id/frame32"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame40"
-        android:layout_toEndOf="@id/frame40"
-        android:layout_above="@+id/frame40"
-        android:padding="3dp"
-        android:background="@drawable/tr"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile32"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text32"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame33"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame41"
-        android:layout_toEndOf="@id/frame41"
-        android:layout_above="@+id/frame40"
-        android:padding="3dp"
-        android:background="@drawable/tl"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile33"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text33"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame34"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame42"
-        android:layout_toEndOf="@id/frame42"
-        android:layout_above="@+id/frame40"
-        android:padding="3dp"
-        android:background="@drawable/t"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile34"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text34"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame35"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame43"
-        android:layout_toEndOf="@id/frame43"
-        android:layout_above="@+id/frame40"
-        android:padding="3dp"
-        android:background="@drawable/tr"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile35"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text35"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-
-
-    <FrameLayout
-        android:id="@+id/frame23"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame40"
-        android:layout_toEndOf="@id/frame40"
-        android:layout_above="@+id/frame31"
-        android:padding="3dp"
-        android:background="@drawable/br"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile23"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text23"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame24"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame41"
-        android:layout_toEndOf="@id/frame41"
-        android:layout_above="@+id/frame31"
-        android:padding="3dp"
-        android:background="@drawable/bl"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile24"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text24"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame25"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame42"
-        android:layout_toEndOf="@id/frame42"
-        android:layout_above="@+id/frame31"
-        android:padding="3dp"
-        android:background="@drawable/b"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile25"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text25"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame26"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame43"
-        android:layout_toEndOf="@id/frame43"
-        android:layout_above="@+id/frame31"
-        android:padding="3dp"
-        android:background="@drawable/br"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile26"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text26"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-
-
-    <FrameLayout
-        android:id="@+id/frame14"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame40"
-        android:layout_toEndOf="@id/frame40"
-        android:layout_above="@+id/frame22"
-        android:padding="3dp"
-        android:background="@drawable/r"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile14"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text14"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame15"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame41"
-        android:layout_toEndOf="@id/frame41"
-        android:layout_above="@+id/frame22"
-        android:padding="3dp"
-        android:background="@drawable/l"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile15"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text15"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame16"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame42"
-        android:layout_toEndOf="@id/frame42"
-        android:layout_above="@+id/frame22"
-        android:padding="3dp"
-        android:background="@drawable/tile_border"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile16"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text16"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame17"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame43"
-        android:layout_toEndOf="@id/frame43"
-        android:layout_above="@+id/frame22"
-        android:padding="3dp"
-        android:background="@drawable/r"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile17"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text17"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/frame5"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame40"
-        android:layout_toEndOf="@id/frame40"
-        android:layout_above="@+id/frame13"
-        android:padding="3dp"
-        android:background="@drawable/tr"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile5"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text5"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame6"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame41"
-        android:layout_toEndOf="@id/frame41"
-        android:layout_above="@+id/frame13"
-        android:padding="3dp"
-        android:background="@drawable/tl"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile6"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text6"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame7"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame42"
-        android:layout_toEndOf="@id/frame42"
-        android:layout_above="@+id/frame13"
-        android:padding="3dp"
-        android:background="@drawable/t"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile7"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text7"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame8"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame43"
-        android:layout_toEndOf="@id/frame43"
-        android:layout_above="@+id/frame13"
-        android:padding="3dp"
-        android:background="@drawable/tr"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile8"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text8"
-            android:src="@drawable/tile"
+        <FrameLayout
+            android:id="@+id/frame58"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
+            android:layout_below="@id/frame49"
+            android:layout_centerHorizontal="true"
+            android:padding="3dp"
+            android:background="@drawable/t"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
 
-    </FrameLayout>
+            <ImageView
+                android:id="@+id/tile58"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text58"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
 
+        </FrameLayout>
 
 
-
-    <FrameLayout
-        android:id="@+id/frame50"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame40"
-        android:layout_toEndOf="@id/frame40"
-        android:layout_below="@+id/frame41"
-        android:padding="3dp"
-        android:background="@drawable/br"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile50"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text50"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame51"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame41"
-        android:layout_toEndOf="@id/frame41"
-        android:layout_below="@+id/frame41"
-        android:padding="3dp"
-        android:background="@drawable/bl"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile51"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text51"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame52"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame42"
-        android:layout_toEndOf="@id/frame42"
-        android:layout_below="@+id/frame41"
-        android:padding="3dp"
-        android:background="@drawable/b"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile52"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text52"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame53"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame43"
-        android:layout_toEndOf="@id/frame43"
-        android:layout_below="@+id/frame41"
-        android:padding="3dp"
-        android:background="@drawable/br"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile53"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text53"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/frame59"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame40"
-        android:layout_toEndOf="@id/frame40"
-        android:layout_below="@+id/frame49"
-        android:padding="3dp"
-        android:background="@drawable/tr"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile59"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text59"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame60"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame41"
-        android:layout_toEndOf="@id/frame41"
-        android:layout_below="@+id/frame49"
-        android:padding="3dp"
-        android:background="@drawable/tl"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile60"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text60"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame61"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame42"
-        android:layout_toEndOf="@id/frame42"
-        android:layout_below="@+id/frame49"
-        android:padding="3dp"
-        android:background="@drawable/t"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile61"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text61"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame62"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame43"
-        android:layout_toEndOf="@id/frame43"
-        android:layout_below="@+id/frame49"
-        android:padding="3dp"
-        android:background="@drawable/tr"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile62"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text62"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/frame68"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame40"
-        android:layout_toEndOf="@id/frame40"
-        android:layout_below="@+id/frame58"
-        android:padding="3dp"
-        android:background="@drawable/r"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile68"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text68"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame69"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame41"
-        android:layout_toEndOf="@id/frame41"
-        android:layout_below="@+id/frame58"
-        android:padding="3dp"
-        android:background="@drawable/l"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile69"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text69"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame70"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame42"
-        android:layout_toEndOf="@id/frame42"
-        android:layout_below="@+id/frame58"
-        android:padding="3dp"
-        android:background="@drawable/tile_border"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile70"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text70"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame71"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame43"
-        android:layout_toEndOf="@id/frame43"
-        android:layout_below="@+id/frame58"
-        android:padding="3dp"
-        android:background="@drawable/r"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile71"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text71"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/frame77"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame40"
-        android:layout_toEndOf="@id/frame40"
-        android:layout_below="@+id/frame67"
-        android:padding="3dp"
-        android:background="@drawable/br"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile77"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text77"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame78"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame41"
-        android:layout_toEndOf="@id/frame41"
-        android:layout_below="@+id/frame67"
-        android:padding="3dp"
-        android:background="@drawable/bl"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile78"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text78"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame79"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame42"
-        android:layout_toEndOf="@id/frame42"
-        android:layout_below="@+id/frame67"
-        android:padding="3dp"
-        android:background="@drawable/b"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile79"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text79"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/frame80"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_toRightOf="@id/frame43"
-        android:layout_toEndOf="@id/frame43"
-        android:layout_below="@+id/frame67"
-        android:padding="3dp"
-        android:background="@drawable/br"
-        tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
-        android:onClick="flipCard">
-
-        <ImageView
-            android:id="@+id/tile80"
-            android:src="@drawable/tile"
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-        <TextView
-            android:id="@+id/text80"
-            android:src="@drawable/tile"
+        <FrameLayout
+            android:id="@+id/frame67"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="6dp" />
-
-    </FrameLayout>
+            android:layout_below="@id/frame58"
+            android:layout_centerHorizontal="true"
+            android:padding="3dp"
+            android:background="@drawable/tile_border"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
 
+            <ImageView
+                android:id="@+id/tile67"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text67"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
 
-</RelativeLayout>
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:id="@+id/frame76"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_below="@id/frame67"
+            android:layout_centerHorizontal="true"
+            android:padding="3dp"
+            android:background="@drawable/b"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile76"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text76"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <FrameLayout
+            android:id="@+id/frame41"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame40"
+            android:layout_toEndOf="@id/frame40"
+            android:layout_centerVertical="true"
+            android:padding="3dp"
+            android:background="@drawable/r"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile41"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text41"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame42"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame41"
+            android:layout_toEndOf="@id/frame41"
+            android:layout_centerVertical="true"
+            android:padding="3dp"
+            android:background="@drawable/l"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile42"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text42"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame43"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame42"
+            android:layout_toEndOf="@id/frame42"
+            android:layout_centerVertical="true"
+            android:padding="3dp"
+            android:background="@drawable/tile_border"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile43"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text43"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame44"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame43"
+            android:layout_toEndOf="@id/frame43"
+            android:layout_centerVertical="true"
+            android:padding="3dp"
+            android:background="@drawable/r"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile44"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text44"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frame39"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame40"
+            android:layout_toStartOf="@id/frame40"
+            android:layout_centerVertical="true"
+            android:padding="3dp"
+            android:background="@drawable/l"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile39"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text39"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame38"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame39"
+            android:layout_toStartOf="@id/frame39"
+            android:layout_centerVertical="true"
+            android:padding="3dp"
+            android:background="@drawable/r"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile38"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text38"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame37"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame38"
+            android:layout_toStartOf="@id/frame38"
+            android:layout_centerVertical="true"
+            android:padding="3dp"
+            android:background="@drawable/tile_border"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile37"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text37"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame36"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame37"
+            android:layout_toStartOf="@id/frame37"
+            android:layout_centerVertical="true"
+            android:padding="3dp"
+            android:background="@drawable/l"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile36"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text36"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+
+
+
+
+
+        <FrameLayout
+            android:id="@+id/frame30"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame40"
+            android:layout_toStartOf="@id/frame40"
+            android:layout_above="@+id/frame40"
+            android:padding="3dp"
+            android:background="@drawable/tl"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile30"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text30"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame29"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame39"
+            android:layout_toStartOf="@id/frame39"
+            android:layout_above="@+id/frame40"
+            android:padding="3dp"
+            android:background="@drawable/tr"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile29"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text29"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame28"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame38"
+            android:layout_toStartOf="@id/frame38"
+            android:layout_above="@+id/frame40"
+            android:padding="3dp"
+            android:background="@drawable/t"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile28"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text28"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame27"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame37"
+            android:layout_toStartOf="@id/frame37"
+            android:layout_above="@+id/frame40"
+            android:padding="3dp"
+            android:background="@drawable/tl"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile27"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text27"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frame21"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame40"
+            android:layout_toStartOf="@id/frame40"
+            android:layout_above="@+id/frame31"
+            android:padding="3dp"
+            android:background="@drawable/bl"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile21"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text21"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame20"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame39"
+            android:layout_toStartOf="@id/frame39"
+            android:layout_above="@+id/frame31"
+            android:padding="3dp"
+            android:background="@drawable/br"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile20"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text20"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame19"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame38"
+            android:layout_toStartOf="@id/frame38"
+            android:layout_above="@+id/frame31"
+            android:padding="3dp"
+            android:background="@drawable/b"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile19"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text19"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame18"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame37"
+            android:layout_toStartOf="@id/frame37"
+            android:layout_above="@+id/frame31"
+            android:padding="3dp"
+            android:background="@drawable/bl"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile18"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text18"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frame12"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_above="@+id/frame21"
+            android:layout_marginBottom="0dp"
+            android:layout_toStartOf="@id/frame40"
+            android:layout_toLeftOf="@id/frame40"
+            android:background="@drawable/l"
+            android:padding="3dp"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile12"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/tile" />
+            <TextView
+                android:id="@+id/text12"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame11"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame39"
+            android:layout_toStartOf="@id/frame39"
+            android:layout_above="@+id/frame22"
+            android:padding="3dp"
+            android:background="@drawable/r"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile11"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text11"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame10"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame38"
+            android:layout_toStartOf="@id/frame38"
+            android:layout_above="@+id/frame22"
+            android:padding="3dp"
+            android:background="@drawable/tile_border"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile10"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text10"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame9"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame37"
+            android:layout_toStartOf="@id/frame37"
+            android:layout_above="@+id/frame22"
+            android:padding="3dp"
+            android:background="@drawable/l"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile9"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text9"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frame3"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame40"
+            android:layout_toStartOf="@id/frame40"
+            android:layout_above="@+id/frame13"
+            android:padding="3dp"
+            android:background="@drawable/tl"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile3"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text3"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame2"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame39"
+            android:layout_toStartOf="@id/frame39"
+            android:layout_above="@+id/frame13"
+            android:padding="3dp"
+            android:background="@drawable/tr"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile2"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text2"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame1"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame38"
+            android:layout_toStartOf="@id/frame38"
+            android:layout_above="@+id/frame13"
+            android:padding="3dp"
+            android:background="@drawable/t"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile1"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text1"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame0"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame37"
+            android:layout_toStartOf="@id/frame37"
+            android:layout_above="@+id/frame13"
+            android:padding="3dp"
+            android:background="@drawable/tl"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile0"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text0"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+
+
+
+        <FrameLayout
+            android:id="@+id/frame48"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame40"
+            android:layout_toStartOf="@id/frame40"
+            android:layout_below="@+id/frame67"
+            android:padding="3dp"
+            android:background="@drawable/bl"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile48"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text48"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame47"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame39"
+            android:layout_toStartOf="@id/frame39"
+            android:layout_below="@+id/frame67"
+            android:padding="3dp"
+            android:background="@drawable/br"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile47"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text47"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame46"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame38"
+            android:layout_toStartOf="@id/frame38"
+            android:layout_below="@+id/frame67"
+            android:padding="3dp"
+            android:background="@drawable/b"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile46"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text46"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame45"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame37"
+            android:layout_toStartOf="@id/frame37"
+            android:layout_below="@+id/frame67"
+            android:padding="3dp"
+            android:background="@drawable/bl"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile45"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text45"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frame57"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame40"
+            android:layout_toStartOf="@id/frame40"
+            android:layout_below="@+id/frame49"
+            android:padding="3dp"
+            android:background="@drawable/tl"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile57"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text57"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame56"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame39"
+            android:layout_toStartOf="@id/frame39"
+            android:layout_below="@+id/frame49"
+            android:padding="3dp"
+            android:background="@drawable/tr"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile56"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text56"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame55"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame38"
+            android:layout_toStartOf="@id/frame38"
+            android:layout_below="@+id/frame49"
+            android:padding="3dp"
+            android:background="@drawable/t"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile55"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+
+            <TextView
+                android:id="@+id/text55"
+                android:layout_width="31dp"
+                android:layout_height="35dp"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="6dp"
+                android:paddingRight="10dp"
+                android:src="@drawable/tile" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame54"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame37"
+            android:layout_toStartOf="@id/frame37"
+            android:layout_below="@+id/frame49"
+            android:padding="3dp"
+            android:background="@drawable/tl"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile54"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text54"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frame66"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame40"
+            android:layout_toStartOf="@id/frame40"
+            android:layout_below="@+id/frame58"
+            android:padding="3dp"
+            android:background="@drawable/l"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile66"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text66"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame65"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame39"
+            android:layout_toStartOf="@id/frame39"
+            android:layout_below="@+id/frame58"
+            android:padding="3dp"
+            android:background="@drawable/r"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile65"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text65"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame64"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame38"
+            android:layout_toStartOf="@id/frame38"
+            android:layout_below="@+id/frame58"
+            android:padding="3dp"
+            android:background="@drawable/tile_border"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile64"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text64"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame63"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame37"
+            android:layout_toStartOf="@id/frame37"
+            android:layout_below="@+id/frame58"
+            android:padding="3dp"
+            android:background="@drawable/l"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile63"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text63"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frame75"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame40"
+            android:layout_toStartOf="@id/frame40"
+            android:layout_below="@+id/frame40"
+            android:padding="3dp"
+            android:background="@drawable/bl"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile75"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text75"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame74"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame39"
+            android:layout_toStartOf="@id/frame39"
+            android:layout_below="@+id/frame40"
+            android:padding="3dp"
+            android:background="@drawable/br"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile74"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text74"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame73"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame38"
+            android:layout_toStartOf="@id/frame38"
+            android:layout_below="@+id/frame40"
+            android:padding="3dp"
+            android:background="@drawable/b"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile73"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text73"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame72"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toLeftOf="@id/frame37"
+            android:layout_toStartOf="@id/frame37"
+            android:layout_below="@+id/frame40"
+            android:padding="3dp"
+            android:background="@drawable/bl"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile72"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text72"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <FrameLayout
+            android:id="@+id/frame32"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame40"
+            android:layout_toEndOf="@id/frame40"
+            android:layout_above="@+id/frame40"
+            android:padding="3dp"
+            android:background="@drawable/tr"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile32"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text32"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame33"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame41"
+            android:layout_toEndOf="@id/frame41"
+            android:layout_above="@+id/frame40"
+            android:padding="3dp"
+            android:background="@drawable/tl"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile33"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text33"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame34"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame42"
+            android:layout_toEndOf="@id/frame42"
+            android:layout_above="@+id/frame40"
+            android:padding="3dp"
+            android:background="@drawable/t"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile34"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text34"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame35"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame43"
+            android:layout_toEndOf="@id/frame43"
+            android:layout_above="@+id/frame40"
+            android:padding="3dp"
+            android:background="@drawable/tr"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile35"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text35"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:id="@+id/frame23"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame40"
+            android:layout_toEndOf="@id/frame40"
+            android:layout_above="@+id/frame31"
+            android:padding="3dp"
+            android:background="@drawable/br"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile23"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text23"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame24"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame41"
+            android:layout_toEndOf="@id/frame41"
+            android:layout_above="@+id/frame31"
+            android:padding="3dp"
+            android:background="@drawable/bl"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile24"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text24"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame25"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame42"
+            android:layout_toEndOf="@id/frame42"
+            android:layout_above="@+id/frame31"
+            android:padding="3dp"
+            android:background="@drawable/b"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile25"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text25"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame26"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame43"
+            android:layout_toEndOf="@id/frame43"
+            android:layout_above="@+id/frame31"
+            android:padding="3dp"
+            android:background="@drawable/br"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile26"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text26"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:id="@+id/frame14"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame40"
+            android:layout_toEndOf="@id/frame40"
+            android:layout_above="@+id/frame22"
+            android:padding="3dp"
+            android:background="@drawable/r"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile14"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text14"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame15"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame41"
+            android:layout_toEndOf="@id/frame41"
+            android:layout_above="@+id/frame22"
+            android:padding="3dp"
+            android:background="@drawable/l"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile15"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text15"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame16"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame42"
+            android:layout_toEndOf="@id/frame42"
+            android:layout_above="@+id/frame22"
+            android:padding="3dp"
+            android:background="@drawable/tile_border"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile16"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text16"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame17"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame43"
+            android:layout_toEndOf="@id/frame43"
+            android:layout_above="@+id/frame22"
+            android:padding="3dp"
+            android:background="@drawable/r"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile17"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text17"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frame5"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame40"
+            android:layout_toEndOf="@id/frame40"
+            android:layout_above="@+id/frame13"
+            android:padding="3dp"
+            android:background="@drawable/tr"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile5"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text5"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame6"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame41"
+            android:layout_toEndOf="@id/frame41"
+            android:layout_above="@+id/frame13"
+            android:padding="3dp"
+            android:background="@drawable/tl"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile6"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text6"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame7"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame42"
+            android:layout_toEndOf="@id/frame42"
+            android:layout_above="@+id/frame13"
+            android:padding="3dp"
+            android:background="@drawable/t"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile7"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text7"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame8"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame43"
+            android:layout_toEndOf="@id/frame43"
+            android:layout_above="@+id/frame13"
+            android:padding="3dp"
+            android:background="@drawable/tr"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile8"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text8"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+
+
+
+
+        <FrameLayout
+            android:id="@+id/frame50"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame40"
+            android:layout_toEndOf="@id/frame40"
+            android:layout_below="@+id/frame41"
+            android:padding="3dp"
+            android:background="@drawable/br"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile50"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text50"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame51"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame41"
+            android:layout_toEndOf="@id/frame41"
+            android:layout_below="@+id/frame41"
+            android:padding="3dp"
+            android:background="@drawable/bl"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile51"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text51"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame52"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame42"
+            android:layout_toEndOf="@id/frame42"
+            android:layout_below="@+id/frame41"
+            android:padding="3dp"
+            android:background="@drawable/b"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile52"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text52"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame53"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame43"
+            android:layout_toEndOf="@id/frame43"
+            android:layout_below="@+id/frame41"
+            android:padding="3dp"
+            android:background="@drawable/br"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile53"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text53"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frame59"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame40"
+            android:layout_toEndOf="@id/frame40"
+            android:layout_below="@+id/frame49"
+            android:padding="3dp"
+            android:background="@drawable/tr"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile59"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text59"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame60"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame41"
+            android:layout_toEndOf="@id/frame41"
+            android:layout_below="@+id/frame49"
+            android:padding="3dp"
+            android:background="@drawable/tl"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile60"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text60"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame61"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame42"
+            android:layout_toEndOf="@id/frame42"
+            android:layout_below="@+id/frame49"
+            android:padding="3dp"
+            android:background="@drawable/t"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile61"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text61"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame62"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame43"
+            android:layout_toEndOf="@id/frame43"
+            android:layout_below="@+id/frame49"
+            android:padding="3dp"
+            android:background="@drawable/tr"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile62"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text62"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frame68"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame40"
+            android:layout_toEndOf="@id/frame40"
+            android:layout_below="@+id/frame58"
+            android:padding="3dp"
+            android:background="@drawable/r"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile68"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text68"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame69"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame41"
+            android:layout_toEndOf="@id/frame41"
+            android:layout_below="@+id/frame58"
+            android:padding="3dp"
+            android:background="@drawable/l"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile69"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text69"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame70"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame42"
+            android:layout_toEndOf="@id/frame42"
+            android:layout_below="@+id/frame58"
+            android:padding="3dp"
+            android:background="@drawable/tile_border"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile70"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text70"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame71"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame43"
+            android:layout_toEndOf="@id/frame43"
+            android:layout_below="@+id/frame58"
+            android:padding="3dp"
+            android:background="@drawable/r"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile71"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text71"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frame77"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame40"
+            android:layout_toEndOf="@id/frame40"
+            android:layout_below="@+id/frame67"
+            android:padding="3dp"
+            android:background="@drawable/br"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile77"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text77"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame78"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame41"
+            android:layout_toEndOf="@id/frame41"
+            android:layout_below="@+id/frame67"
+            android:padding="3dp"
+            android:background="@drawable/bl"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile78"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text78"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame79"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame42"
+            android:layout_toEndOf="@id/frame42"
+            android:layout_below="@+id/frame67"
+            android:padding="3dp"
+            android:background="@drawable/b"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile79"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text79"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/frame80"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@id/frame43"
+            android:layout_toEndOf="@id/frame43"
+            android:layout_below="@+id/frame67"
+            android:padding="3dp"
+            android:background="@drawable/br"
+            tools:context="hu.marci.customsolutions.sudokusolveranddigitizer.SolverActivity"
+            android:onClick="flipCard">
+
+            <ImageView
+                android:id="@+id/tile80"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/text80"
+                android:src="@drawable/tile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp" />
+
+        </FrameLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
