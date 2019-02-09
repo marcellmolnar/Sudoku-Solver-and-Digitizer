@@ -5,20 +5,25 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
+import android.graphics.Paint;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.util.IllegalFormatConversionException;
 import java.util.Locale;
 
 public class SolverActivity extends AppCompatActivity {
@@ -27,14 +32,17 @@ public class SolverActivity extends AppCompatActivity {
     private int[] numbers;
     private int[] solution;
     private TextView[] texts;
+    private EditText[] ets;
 
     private TextView solveInfo;
     private Button showAll;
+    private Button edit;
     private boolean showAllSolutions;
+    private boolean editing;
+
+    private TextView solutionNumber;
 
     private Locale locale;
-
-    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +51,10 @@ public class SolverActivity extends AppCompatActivity {
 
         locale = getResources().getConfiguration().locale;
 
+        editing = false;
+
+        solutionNumber = findViewById(R.id.solutionNumber);
         solveInfo = findViewById(R.id.solveInfo);
-        progressBar = findViewById(R.id.progressBar);
-        progressBar.setVisibility(View.INVISIBLE);
 
         showNumber = new boolean[81];
         for (int i = 0; i < 81; i++){
@@ -66,54 +75,22 @@ public class SolverActivity extends AppCompatActivity {
 
 
         texts = new TextView[81];
+        ets = new EditText[81];
+        for (int i = 0; i < 81; i++) {
+            // Get TextView
+            texts[i] = findViewById(getResourceIDfromNumber(i, 0));
+            // Get EditText
+            ets[i] = findViewById(getResourceIDfromNumber(i, 3));
+            ets[i].setVisibility(View.INVISIBLE);
+            ets[i].setOnFocusChangeListener(myOnFocusChangeListener);
+            ets[i].addTextChangedListener(new MyTextWatcher(ets[i],i));
+        }
 
         showAll = findViewById(R.id.showall);
-        showAll.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                for (int i = 0; i < 81; i++) {
-                    if (!showAllSolutions) {
-                        if (numbers != null && numbers[i] == 0 && !showNumber[i]) {
-                            ObjectAnimator anim;
-                            ObjectAnimator anim2;
-                            anim = ObjectAnimator.ofFloat(findViewById(getResourceIDfromNumber(i, 1)),
-                                    "rotationY", 180f, 0f);
-                            anim.setDuration(10);
-                            anim.start();
-                            anim2 = ObjectAnimator.ofFloat(findViewById(getResourceIDfromNumber(i, 0)),
-                                    "alpha", 1.f);
-                            anim2.setDuration(10);
-                            anim2.start();
-
-                            showNumber[i] = !showNumber[i];
-                        }
-                        showAll.setText(R.string.hideall);
-                    }
-                    else{
-                        if (numbers != null && numbers[i] == 0 && showNumber[i]) {
-                            ObjectAnimator anim;
-                            ObjectAnimator anim2;
-                            anim = ObjectAnimator.ofFloat(findViewById(getResourceIDfromNumber(i, 1))
-                                    , "rotationY", 0, -180f);
-                            anim.setDuration(10);
-                            anim.start();
-                            anim2 = ObjectAnimator.ofFloat(findViewById(getResourceIDfromNumber(i, 0)),
-                                    "alpha", 0.f);
-                            anim2.setDuration(10);
-                            anim2.start();
-
-                            showNumber[i] = !showNumber[i];
-                        }
-                        showAll.setText(R.string.showall);
-                    }
-                }
-                showAllSolutions = !showAllSolutions;
-            }
-        });
-
-
+        showAll.setOnClickListener(showAllOnClickListener);
 
         Toolbar mToolbar = findViewById(R.id.toolbar);
+        mToolbar.setTitle(getString(R.string.back));
         mToolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
 
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -124,6 +101,9 @@ public class SolverActivity extends AppCompatActivity {
             }
         });
 
+        edit = findViewById(R.id.edit);
+        edit.setOnClickListener(myEditButtonOnClickListener);
+
     }
 
     boolean solved = false;
@@ -133,7 +113,7 @@ public class SolverActivity extends AppCompatActivity {
         private Activity activity;
         private Dialog dialog;
 
-        public SolveSudoku(Activity activity) {
+        SolveSudoku(Activity activity) {
             this.activity = activity;
             dialog = new Dialog(activity, R.style.Theme_AppCompat);
             View view = LayoutInflater.from(activity).inflate(R.layout.remove_border, null);
@@ -165,6 +145,9 @@ public class SolverActivity extends AppCompatActivity {
             if (dialog.isShowing()){
                 dialog.dismiss();
             }
+
+            solutionNumber.setText("1/1");
+
             if (solved){
                 solveInfo.setText(R.string.solveSuccess);
             }
@@ -179,13 +162,11 @@ public class SolverActivity extends AppCompatActivity {
                     // Delete onClick listener from FrameLayout
                     findViewById(getResourceIDfromNumber(i, 2)).setOnClickListener(null);
                 }
-                // Get TextView
-                texts[i] = findViewById(getResourceIDfromNumber(i, 0));
                 if (texts[i] != null && numbers[i] != 0) {
                     // Set number
                     texts[i].setText(String.format(locale, "%d", numbers[i]));
                 }
-                if (numbers[i] == 0){
+                if (numbers != null && numbers[i] == 0){
 
                     if (texts[i] != null) {
                         texts[i].setText(String.format(locale, "%d", solution[i]));
@@ -219,7 +200,194 @@ public class SolverActivity extends AppCompatActivity {
 
     public native boolean solveSudoku(int[] numbers, int[] sudoku);
 
+    // Create an anonymous implementation of OnClickListener
+    private View.OnClickListener showAllOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            flipAll();
+        }
+    };
+
+    public void flipAll(){
+        for (int i = 0; i < 81; i++) {
+            if (!showAllSolutions) {
+                if (numbers != null && numbers[i] == 0 && !showNumber[i]) {
+                    ObjectAnimator anim;
+                    ObjectAnimator anim2;
+                    anim = ObjectAnimator.ofFloat(findViewById(getResourceIDfromNumber(i, 1)),
+                            "rotationY", 180f, 0f);
+                    anim.setDuration(10);
+                    anim.start();
+                    anim2 = ObjectAnimator.ofFloat(findViewById(getResourceIDfromNumber(i, 0)),
+                            "alpha", 1.f);
+                    anim2.setDuration(10);
+                    anim2.start();
+
+                    showNumber[i] = !showNumber[i];
+                }
+                showAll.setText(R.string.hideall);
+            }
+            else{
+                if (numbers != null && numbers[i] == 0 && showNumber[i]) {
+                    ObjectAnimator anim;
+                    ObjectAnimator anim2;
+                    anim = ObjectAnimator.ofFloat(findViewById(getResourceIDfromNumber(i, 1))
+                            , "rotationY", 0, -180f);
+                    anim.setDuration(10);
+                    anim.start();
+                    anim2 = ObjectAnimator.ofFloat(findViewById(getResourceIDfromNumber(i, 0)),
+                            "alpha", 0.f);
+                    anim2.setDuration(10);
+                    anim2.start();
+
+                    showNumber[i] = !showNumber[i];
+                }
+                showAll.setText(R.string.showall);
+            }
+        }
+        showAllSolutions = !showAllSolutions;
+    }
+
+    // Create an anonymous implementation of OnClickListener
+    private View.OnClickListener myEditButtonOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            editAll();
+        }
+    };
+
+    public void editAll(){
+        editing = !editing;
+        if (editing){
+
+            edit.setText(R.string.edit2);
+            for (int i = 0; i < 81; i++) {
+                ets[i].setBackgroundResource(R.color.Totaltransparent);
+                // Remove tile background from this cell
+                findViewById(getResourceIDfromNumber(i, 1)).setVisibility(View.INVISIBLE);
+                // Remove text
+                findViewById(getResourceIDfromNumber(i, 0)).setVisibility(View.INVISIBLE);
+                if (numbers[i] != 0) {
+                    try{
+                        ets[i].setText(String.format(locale, "%d", numbers[i]));
+                    }
+                    catch (IllegalFormatConversionException ifce){
+                        ets[i].setText(" ");
+                    }
+                }
+                else {
+                    ets[i].setText(" ");
+                    // Delete onClick listener from FrameLayout
+                    findViewById(getResourceIDfromNumber(i, 2)).setOnClickListener(null);
+                }
+                ets[i].setVisibility(View.VISIBLE);
+            }
+        }
+        else{
+            edit.setText(R.string.edit);
+            for (int i = 0; i < 81; i++) {
+                ets[i].setVisibility(View.INVISIBLE);
+                if (numbers[i] != 0){
+                    texts[i].setText(String.format(locale, "%d", numbers[i]));
+                    // Remove tile background from this cell
+                    findViewById(getResourceIDfromNumber(i, 1)).setVisibility(View.INVISIBLE);
+                    // Delete onClick listener from FrameLayout
+                    findViewById(getResourceIDfromNumber(i, 2)).setOnClickListener(null);
+                    // Show text
+                    findViewById(getResourceIDfromNumber(i, 0)).setVisibility(View.VISIBLE);
+                    ObjectAnimator anim;
+                    anim = ObjectAnimator.ofFloat(texts[i],"alpha",1.f);
+                    anim.setDuration(0);
+                    anim.start();
+                }
+                else {
+                    // Remove tile background from this cell
+                    findViewById(getResourceIDfromNumber(i, 1)).setVisibility(View.VISIBLE);
+                    // Show text
+                    findViewById(getResourceIDfromNumber(i, 0)).setVisibility(View.VISIBLE);
+                    // Delete onClick listener from FrameLayout
+                    findViewById(getResourceIDfromNumber(i, 2)).setOnClickListener(mOnClickListener);
+                }
+            }
+            new SolveSudoku(SolverActivity.this).execute();
+        }
+    }
+
+    private View.OnFocusChangeListener myOnFocusChangeListener = new View.OnFocusChangeListener() {
+        @Override
+        public void onFocusChange(View view, boolean hasFocus) {
+            changefocus(view, hasFocus);
+        }
+
+    };
+    public void changefocus(View view, boolean hasFocus) {
+        if (hasFocus) {
+            view.setBackgroundResource(R.color.focusedET);
+        } else {
+            view.setBackgroundResource(R.color.Totaltransparent);
+        }
+    }
+
+
+    private class MyTextWatcher implements TextWatcher {
+        private EditText et;
+        private int index;
+        private String beforeString;
+        boolean preventUpdate = false;
+
+        public MyTextWatcher(EditText e, int i) {
+            et = e;
+            index = i;
+        }
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            beforeString = et.getText().toString();
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            String myNum = et.getText().toString();myNum = myNum.replace(" ","");
+            if (!myNum.startsWith(beforeString)) {
+                myNum = myNum.replace(beforeString,"");
+            }
+            int mynumber=0;
+            try {
+                mynumber = Integer.parseInt(myNum);
+            }
+            catch (NumberFormatException nfe){
+            }
+            if (mynumber > 9){
+                mynumber = mynumber % 10;
+            }
+            numbers[index] = mynumber;
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            if(preventUpdate){
+                preventUpdate = false; // reset flag after calling
+                return;
+            }
+            preventUpdate = true;
+            if (numbers[index] > 0) {
+                et.setText(String.format(locale, "%d", numbers[index]));
+            }
+            else {
+                et.setText(" ");
+            }
+            et.setSelection(et.getText().length());
+        }
+    }
+
+    // Create an anonymous implementation of OnClickListener
+    private View.OnClickListener mOnClickListener = new View.OnClickListener() {
+        public void onClick(View v) {
+            flipCard(v);
+        }
+    };
+
     public void flipCard(View v) {
+        Log.i("asdasd",String.valueOf("hi"));
         // showing number to not showing
         if (showNumber[getIDfromView(v)]) {
             FrameLayout fl = (FrameLayout) v;
@@ -516,6 +684,7 @@ public class SolverActivity extends AppCompatActivity {
     }
 
     // Returns the resource id of text (returnTextID = 0) or tile (returnTextID = 1) or frame (returnTextID = 2)
+            //  or edit text (returnTextID = 3)
     private int getResourceIDfromNumber(int num, int returnTextID){
         switch (num){
             case 0: {
@@ -525,8 +694,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile0;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame0;
+                }
+                else {
+                    return R.id.et0;
                 }
             }
             case 1: {
@@ -536,8 +708,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile1;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame1;
+                }
+                else {
+                    return R.id.et1;
                 }
             }
             case 2: {
@@ -547,8 +722,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile2;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame2;
+                }
+                else {
+                    return R.id.et2;
                 }
             }
             case 3: {
@@ -558,8 +736,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile3;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame3;
+                }
+                else {
+                    return R.id.et3;
                 }
             }
             case 4: {
@@ -569,8 +750,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile4;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame4;
+                }
+                else {
+                    return R.id.et4;
                 }
             }
             case 5: {
@@ -580,8 +764,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile5;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame5;
+                }
+                else {
+                    return R.id.et5;
                 }
             }
             case 6: {
@@ -591,8 +778,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile6;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame6;
+                }
+                else {
+                    return R.id.et6;
                 }
             }
             case 7: {
@@ -602,8 +792,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile7;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame7;
+                }
+                else {
+                    return R.id.et7;
                 }
             }
             case 8: {
@@ -613,8 +806,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile8;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame8;
+                }
+                else {
+                    return R.id.et8;
                 }
             }
             case 9: {
@@ -624,8 +820,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile9;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame9;
+                }
+                else {
+                    return R.id.et9;
                 }
             }
             case 10: {
@@ -635,8 +834,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile10;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame10;
+                }
+                else {
+                    return R.id.et10;
                 }
             }
             case 11: {
@@ -646,8 +848,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile11;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame11;
+                }
+                else {
+                    return R.id.et11;
                 }
             }
             case 12: {
@@ -657,8 +862,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile12;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame12;
+                }
+                else {
+                    return R.id.et12;
                 }
             }
             case 13: {
@@ -668,8 +876,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile13;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame13;
+                }
+                else {
+                    return R.id.et13;
                 }
             }
             case 14: {
@@ -679,8 +890,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile14;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame14;
+                }
+                else {
+                    return R.id.et14;
                 }
             }
             case 15: {
@@ -690,8 +904,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile15;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame15;
+                }
+                else {
+                    return R.id.et15;
                 }
             }
             case 16: {
@@ -701,8 +918,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile16;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame16;
+                }
+                else {
+                    return R.id.et16;
                 }
             }
             case 17: {
@@ -712,8 +932,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile17;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame17;
+                }
+                else {
+                    return R.id.et17;
                 }
             }
             case 18: {
@@ -723,8 +946,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile18;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame18;
+                }
+                else {
+                    return R.id.et18;
                 }
             }
             case 19: {
@@ -734,8 +960,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile19;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame19;
+                }
+                else {
+                    return R.id.et19;
                 }
             }
             case 20: {
@@ -745,8 +974,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile20;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame20;
+                }
+                else {
+                    return R.id.et20;
                 }
             }
             case 21: {
@@ -756,8 +988,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile21;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame21;
+                }
+                else {
+                    return R.id.et21;
                 }
             }
             case 22: {
@@ -767,8 +1002,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile22;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame22;
+                }
+                else {
+                    return R.id.et22;
                 }
             }
             case 23: {
@@ -778,8 +1016,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile23;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame23;
+                }
+                else {
+                    return R.id.et23;
                 }
             }
             case 24: {
@@ -789,8 +1030,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile24;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame24;
+                }
+                else {
+                    return R.id.et24;
                 }
             }
             case 25: {
@@ -800,8 +1044,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile25;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame25;
+                }
+                else {
+                    return R.id.et25;
                 }
             }
             case 26: {
@@ -811,8 +1058,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile26;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame26;
+                }
+                else {
+                    return R.id.et26;
                 }
             }
             case 27: {
@@ -822,8 +1072,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile27;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame27;
+                }
+                else {
+                    return R.id.et27;
                 }
             }
             case 28: {
@@ -833,8 +1086,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile28;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame28;
+                }
+                else {
+                    return R.id.et28;
                 }
             }
             case 29: {
@@ -844,8 +1100,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile29;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame29;
+                }
+                else {
+                    return R.id.et29;
                 }
             }
             case 30: {
@@ -855,8 +1114,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile30;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame30;
+                }
+                else {
+                    return R.id.et30;
                 }
             }
             case 31: {
@@ -866,8 +1128,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile31;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame31;
+                }
+                else {
+                    return R.id.et31;
                 }
             }
             case 32: {
@@ -877,8 +1142,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile32;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame32;
+                }
+                else {
+                    return R.id.et32;
                 }
             }
             case 33: {
@@ -888,8 +1156,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile33;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame33;
+                }
+                else {
+                    return R.id.et33;
                 }
             }
             case 34: {
@@ -899,8 +1170,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile34;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame34;
+                }
+                else {
+                    return R.id.et34;
                 }
             }
             case 35: {
@@ -910,8 +1184,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile35;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame35;
+                }
+                else {
+                    return R.id.et35;
                 }
             }
             case 36: {
@@ -921,8 +1198,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile36;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame36;
+                }
+                else {
+                    return R.id.et36;
                 }
             }
             case 37: {
@@ -932,8 +1212,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile37;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame37;
+                }
+                else {
+                    return R.id.et37;
                 }
             }
             case 38: {
@@ -943,8 +1226,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile38;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame38;
+                }
+                else {
+                    return R.id.et38;
                 }
             }
             case 39: {
@@ -954,8 +1240,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile39;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame39;
+                }
+                else {
+                    return R.id.et39;
                 }
             }
             case 40: {
@@ -965,8 +1254,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile40;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame40;
+                }
+                else {
+                    return R.id.et40;
                 }
             }
             case 41: {
@@ -976,8 +1268,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile41;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame41;
+                }
+                else {
+                    return R.id.et41;
                 }
             }
             case 42: {
@@ -987,8 +1282,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile42;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame42;
+                }
+                else {
+                    return R.id.et42;
                 }
             }
             case 43: {
@@ -998,8 +1296,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile43;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame43;
+                }
+                else {
+                    return R.id.et43;
                 }
             }
             case 44: {
@@ -1009,8 +1310,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile44;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame44;
+                }
+                else {
+                    return R.id.et44;
                 }
             }
             case 45: {
@@ -1020,8 +1324,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile45;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame45;
+                }
+                else {
+                    return R.id.et45;
                 }
             }
             case 46: {
@@ -1031,8 +1338,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile46;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame46;
+                }
+                else {
+                    return R.id.et46;
                 }
             }
             case 47: {
@@ -1042,8 +1352,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile47;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame47;
+                }
+                else {
+                    return R.id.et47;
                 }
             }
             case 48: {
@@ -1053,8 +1366,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile48;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame48;
+                }
+                else {
+                    return R.id.et48;
                 }
             }
             case 49: {
@@ -1064,8 +1380,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile49;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame49;
+                }
+                else {
+                    return R.id.et49;
                 }
             }
             case 50: {
@@ -1075,8 +1394,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile50;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame50;
+                }
+                else {
+                    return R.id.et50;
                 }
             }
             case 51: {
@@ -1086,8 +1408,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile51;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame51;
+                }
+                else {
+                    return R.id.et51;
                 }
             }
             case 52: {
@@ -1097,8 +1422,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile52;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame52;
+                }
+                else {
+                    return R.id.et52;
                 }
             }
             case 53: {
@@ -1108,8 +1436,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile53;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame53;
+                }
+                else {
+                    return R.id.et53;
                 }
             }
             case 54: {
@@ -1119,8 +1450,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile54;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame54;
+                }
+                else {
+                    return R.id.et54;
                 }
             }
             case 55: {
@@ -1130,8 +1464,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile55;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame55;
+                }
+                else {
+                    return R.id.et55;
                 }
             }
             case 56: {
@@ -1141,8 +1478,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile56;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame56;
+                }
+                else {
+                    return R.id.et56;
                 }
             }
             case 57: {
@@ -1152,8 +1492,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile57;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame57;
+                }
+                else {
+                    return R.id.et57;
                 }
             }
             case 58: {
@@ -1163,8 +1506,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile58;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame58;
+                }
+                else {
+                    return R.id.et58;
                 }
             }
             case 59: {
@@ -1174,8 +1520,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile59;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame59;
+                }
+                else {
+                    return R.id.et59;
                 }
             }
             case 60: {
@@ -1185,8 +1534,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile60;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame60;
+                }
+                else {
+                    return R.id.et60;
                 }
             }
             case 61: {
@@ -1196,8 +1548,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile61;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame61;
+                }
+                else {
+                    return R.id.et61;
                 }
             }
             case 62: {
@@ -1207,8 +1562,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile62;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame62;
+                }
+                else {
+                    return R.id.et62;
                 }
             }
             case 63: {
@@ -1218,8 +1576,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile63;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame63;
+                }
+                else {
+                    return R.id.et63;
                 }
             }
             case 64: {
@@ -1229,8 +1590,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile64;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame64;
+                }
+                else {
+                    return R.id.et64;
                 }
             }
             case 65: {
@@ -1240,8 +1604,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile65;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame65;
+                }
+                else {
+                    return R.id.et65;
                 }
             }
             case 66: {
@@ -1251,8 +1618,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile66;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame66;
+                }
+                else {
+                    return R.id.et66;
                 }
             }
             case 67: {
@@ -1262,8 +1632,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile67;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame67;
+                }
+                else {
+                    return R.id.et67;
                 }
             }
             case 68: {
@@ -1273,8 +1646,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile68;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame68;
+                }
+                else {
+                    return R.id.et68;
                 }
             }
             case 69: {
@@ -1284,8 +1660,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile69;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame69;
+                }
+                else {
+                    return R.id.et69;
                 }
             }
             case 70: {
@@ -1295,8 +1674,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile70;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame70;
+                }
+                else {
+                    return R.id.et70;
                 }
             }
             case 71: {
@@ -1306,8 +1688,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile71;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame71;
+                }
+                else {
+                    return R.id.et71;
                 }
             }
             case 72: {
@@ -1317,8 +1702,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile72;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame72;
+                }
+                else {
+                    return R.id.et72;
                 }
             }
             case 73: {
@@ -1328,8 +1716,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile73;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame73;
+                }
+                else {
+                    return R.id.et73;
                 }
             }
             case 74: {
@@ -1339,8 +1730,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile74;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame74;
+                }
+                else {
+                    return R.id.et74;
                 }
             }
             case 75: {
@@ -1350,8 +1744,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile75;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame75;
+                }
+                else {
+                    return R.id.et75;
                 }
             }
             case 76: {
@@ -1361,8 +1758,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile76;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame76;
+                }
+                else {
+                    return R.id.et76;
                 }
             }
             case 77: {
@@ -1372,8 +1772,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile77;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame77;
+                }
+                else {
+                    return R.id.et77;
                 }
             }
             case 78: {
@@ -1383,8 +1786,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile78;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame78;
+                }
+                else {
+                    return R.id.et78;
                 }
             }
             case 79: {
@@ -1394,8 +1800,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile79;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame79;
+                }
+                else {
+                    return R.id.et79;
                 }
             }
             case 80: {
@@ -1405,8 +1814,11 @@ public class SolverActivity extends AppCompatActivity {
                 if (returnTextID == 1) {
                     return R.id.tile80;
                 }
-                else {
+                if (returnTextID == 2) {
                     return R.id.frame80;
+                }
+                else {
+                    return R.id.et80;
                 }
             }
             default:{
